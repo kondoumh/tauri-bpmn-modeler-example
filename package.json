@@ -1,0 +1,25 @@
+{
+  "name": "tauri-bpmn-modeler-example",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.0.2",
+    "bpmn-js": "^9.3.1",
+    "diagram-js": "^8.7.0",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.0.3",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.19.0",
+    "eslint-plugin-bpmn-io": "^0.14.0",
+    "npm-run-all": "^4.1.5",
+    "raw-loader": "^4.0.2",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  }
+}

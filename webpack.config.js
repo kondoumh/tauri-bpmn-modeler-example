@@ -1,0 +1,34 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+
+module.exports = {
+  entry: {
+    bundle: ['./app/app.js']
+  },
+  output: {
+    path: path.join(__dirname, '/public'),
+    filename: 'app.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.bpmn$/,
+        use: 'raw-loader'
+      }
+    ]
+  },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'assets/**', to: 'vendor/bpmn-js', context: 'node_modules/bpmn-js/dist/' },
+        { from: '**/*.{html,css}', context: 'app/' }
+      ]
+    })
+  ],
+  mode: 'development',
+  devtool: 'source-map',
+  devServer: {
+    port: 3001,
+    open: false
+  }
+};
