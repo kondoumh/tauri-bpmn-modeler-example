@@ -4,8 +4,8 @@ import BpmnModeler from 'bpmn-js/lib/Modeler';
 
 import diagramXML from '../resources/newDiagram.bpmn';
 
-import { save } from '@tauri-apps/api/dialog';
-import { writeTextFile } from '@tauri-apps/api/fs';
+import { save } from '@tauri-apps/plugin-dialog';
+import { writeTextFile } from '@tauri-apps/plugin-fs';
 
 const container = $('#js-drop-zone');
 
