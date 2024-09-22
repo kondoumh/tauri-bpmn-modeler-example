@@ -4,8 +4,10 @@ import BpmnModeler from 'bpmn-js/lib/Modeler';
 
 import diagramXML from '../resources/newDiagram.bpmn';
 
-import { save } from '@tauri-apps/plugin-dialog';
-import { writeTextFile } from '@tauri-apps/plugin-fs';
+import { save, open } from '@tauri-apps/plugin-dialog';
+import { writeTextFile, readTextFile } from '@tauri-apps/plugin-fs';
+
+import { Menu, MenuItem } from '@tauri-apps/api/menu';
 
 const container = $('#js-drop-zone');
 
@@ -89,6 +91,26 @@ $(function() {
     createNewDiagram();
   });
 
+  $('.canvas').contextmenu( async e => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const menuItems = [
+      await MenuItem.new({
+        text: 'Open Diagram',
+        action: async () => {
+          const path = await open({ defaultPath: 'diagram.bpmn' });
+          if (path) {
+            const xml = await readTextFile(path);
+            openDiagram(xml);
+          }
+        },
+      }),
+    ];
+    const menu = await Menu.new({ items: menuItems });
+    menu.popup();
+  });
+
   const saveDiagramLink = $('#js-save-diagram')
   const saveSvgLink = $('#js-save-svg');
 
@@ -143,8 +165,6 @@ $(function() {
 
   modeler.on('commandStack.changed', exportArtifacts);
 });
-
-
 
 // helpers //////////////////////
 
