@@ -10,6 +10,7 @@
     "fs:allow-read-text-file",
     "fs:allow-write-text-file",
     "dialog:allow-save",
+    "dialog:allow-open",
     "dialog:default",
     "fs:default"
   ]
