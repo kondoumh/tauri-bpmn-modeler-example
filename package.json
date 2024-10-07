@@ -6,15 +6,15 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2.0.0-rc.0",
-    "@tauri-apps/plugin-dialog": "^2.0.0-rc",
-    "@tauri-apps/plugin-fs": "^2.0.0-rc",
+    "@tauri-apps/api": "^2.0.1",
+    "@tauri-apps/plugin-dialog": "^2.0.0",
+    "@tauri-apps/plugin-fs": "^2.0.0",
     "bpmn-js": "^17.11.1",
     "diagram-js": "^14.11.0",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.0.0-rc.16",
+    "@tauri-apps/cli": "^2.0.1",
     "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.39.0",
     "eslint-plugin-bpmn-io": "^1.0.0",
